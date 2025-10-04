@@ -1,4 +1,4 @@
-# 💉 DiabPredict — IA para Predição Instantânea de Diabetes
+## 💉 DiabPredict — IA para Predição Instantânea de Diabetes
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-v1.30-orange) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2-green) ![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
 
@@ -11,7 +11,6 @@
 - 📊 Modelo treinado com o **Pima Indians Diabetes Dataset**  
 - ✅ Resultado claro: **“Risco de Diabetes: Sim”** ou **“Não”**
 
----
 
 ## 🔹 Como funciona
 
@@ -19,7 +18,6 @@
 2. 📝 Insira os resultados no sistema (glicose, pressão arterial, insulina, IMC, idade e outros parâmetros clínicos)  
 3. 🤖 A IA processa os dados e retorna instantaneamente o **risco de diabetes**
 
----
 
 ## 🔹 Dataset
 
@@ -35,7 +33,6 @@ O projeto utiliza o **Pima Indians Diabetes Dataset** do UCI Machine Learning Re
 - **Interface:** Streamlit  
 - **Análise e visualização de dados:** pandas, numpy, matplotlib, seaborn  
 
----
 
 ## 🔹 Como testar a IA 🚀
 
@@ -60,13 +57,11 @@ streamlit run app/app.py
 
 💡 **Dica:** Experimente diferentes valores para entender como cada parâmetro influencia a predição da IA
 
----
 
 ## 🔹 Autores 👨‍💻
 
 **Jonnas Pedro**, **Cauã Rocha** e **João Farias** — desenvolvimento do projeto como parte da **Atividade AV3**
 
----
 
 ## 🔹 Licença 📜
 
