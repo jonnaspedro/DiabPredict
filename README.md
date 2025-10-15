@@ -56,6 +56,13 @@ streamlit run app/app.py
 
 💡 **Dica:** Experimente diferentes valores para entender como cada parâmetro influencia a predição da IA
 
+## 🔹 Artigo Científico 📖
+
+Predição de Diabetes Utilizando Modelos de Aprendizado de Máquina com o Dataset Pima Indians
+
+O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Inteligência Artificial voltada para a predição instantânea do risco de diabetes a partir de dados clínicos de exames de sangue. Utilizando o Pima Indians Diabetes Dataset, foram aplicadas técnicas de Machine Learning como Regressão Logística, Random Forest e SVM para treinar e avaliar modelos preditivos. A ferramenta foi desenvolvida em Python com interface interativa em Streamlit, permitindo fácil utilização por profissionais de saúde e pacientes. Os resultados indicam que o uso de algoritmos de aprendizado supervisionado pode auxiliar de forma eficaz na identificação precoce do diabetes, contribuindo para diagnósticos mais rápidos e decisões médicas assertivas.
+
+🔗 Link do Artigo: [Em Breve]
 
 ## 🔹 Autores 👨‍💻
 
