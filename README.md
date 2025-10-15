@@ -22,9 +22,8 @@
 ## 🔹 Dataset
 
 O projeto utiliza o **Pima Indians Diabetes Dataset** do UCI Machine Learning Repository:  
-[📄 Link do dataset](https://archive.ics.uci.edu/dataset/34/pima+indians+diabetes)
+[📄 Link do dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
 
----
 
 ## 🔹 Tecnologias e Bibliotecas
 
