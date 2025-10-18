@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pkl
+*.joblib
+.DS_Store
+.vscode/
+data/
