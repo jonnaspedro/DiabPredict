@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import pickle
+# from mpl_toolkits.mplot3d import Axes3D
+# import pickle
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-columns = ["Pregnancies","Glucose","BloodPressure","SkinThickness","Insulin","BMI","DiabetesPedigreeFunction","Age","Outcome"]
-df = pd.read_csv(url, names=columns)
+path = "data/diabetes.csv"
+df = pd.read_csv(path)
+df_output = df["Outcome"]
+df_rest = df.drop(columns=["Outcome"])
 
 st.title("DiabPredict — IA para Predição Instantânea de Diabetes")
 
@@ -75,8 +76,16 @@ dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0, max_value=2.5
 age = st.number_input("Idade", min_value=0, max_value=120, value=33)
 
 if st.button("Prever Diabetes"):
-    input_data = pd.DataFrame([[pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, dpf, age]],
-                              columns=columns[:-1])
+    input_data = pd.DataFrame(
+        [
+            [
+                pregnancies, glucose, 
+                blood_pressure, skin_thickness, 
+                insulin, bmi, 
+                dpf, age
+            ]
+        ], columns=df_rest.columns
+    )
     
     # --- Integração com modelo real ---
     # model = pickle.load(open("modelo_diabetes.pkl", "rb"))
