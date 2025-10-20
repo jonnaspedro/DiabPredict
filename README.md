@@ -34,13 +34,17 @@ O projeto utiliza o **Pima Indians Diabetes Dataset** do UCI Machine Learning Re
 
 
 ## 🔹 Como testar a IA 🚀
+1️⃣ Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
 
-1️⃣ Execute o app Streamlit:  
+2️⃣ Execute o app Streamlit:  
 
 ```bash
-streamlit run app/app.py
+streamlit run streamlit_app.py
 ```
-2️⃣ Preencha os resultados do exame de sangue:  
+3️⃣ Preencha os resultados do exame de sangue:  
 
 - Glicose  
 - Pressão Arterial  
@@ -49,7 +53,7 @@ streamlit run app/app.py
 - Idade  
 - Outros parâmetros clínicos
 
-3️⃣ Clique em **"Prever"** e visualize o resultado:  
+4️⃣ Clique em **"Prever"** e visualize o resultado:  
 
 ✅ Sem risco de diabetes  
 ⚠️ Risco de diabetes
