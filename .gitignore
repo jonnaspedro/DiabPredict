@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 .vscode/
 data/
+
+model/*.pt
+model/*.json
+model/random_forest/*
