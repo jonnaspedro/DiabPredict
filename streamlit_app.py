@@ -2,12 +2,18 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import pickle
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from pathlib import Path
+import joblib
+# from mpl_toolkits.mplot3d import Axes3D
+# import pickle
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-columns = ["Pregnancies","Glucose","BloodPressure","SkinThickness","Insulin","BMI","DiabetesPedigreeFunction","Age","Outcome"]
-df = pd.read_csv(url, names=columns)
+path = "data/diabetes.csv"
+df = pd.read_csv(path)
+df_output = df["Outcome"]
+df_rest = df.drop(columns=["Outcome"])
 
 st.title("DiabPredict — IA para Predição Instantânea de Diabetes")
 
@@ -75,18 +81,88 @@ dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0, max_value=2.5
 age = st.number_input("Idade", min_value=0, max_value=120, value=33)
 
 if st.button("Prever Diabetes"):
-    input_data = pd.DataFrame([[pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, dpf, age]],
-                              columns=columns[:-1])
+    input_data = pd.DataFrame(
+        [
+            [
+                pregnancies, glucose, 
+                blood_pressure, skin_thickness, 
+                insulin, bmi, 
+                dpf, age
+            ]
+        ], columns=df_rest.columns
+    )
     
     # --- Integração com modelo real ---
     # model = pickle.load(open("modelo_diabetes.pkl", "rb"))
     # prediction = model.predict(input_data)[0]
+    
+    class Net(nn.Module):
+        def __init__(self, input_size, hidden_size, output_size):
+            super().__init__()
+            self.fc1 = nn.Linear(input_size, hidden_size)
+            self.fc2 = nn.Linear(hidden_size, hidden_size)
+            self.fc3 = nn.Linear(hidden_size, hidden_size)
+            self.fc4 = nn.Linear(hidden_size, output_size)
+            
+        def forward(self, x):
+            x = F.relu(self.fc1(x))
+            x = F.relu(self.fc2(x))
+            x = F.relu(self.fc3(x))
+            x = self.fc4(x)
+            return x
+        
+        
+    folder = Path("model")
+    files = sorted([f for f in folder.iterdir() if f.suffix == '.pt'], key=lambda f: f.name, reverse=True)
+    best_model = files[0].name if len(files) > 1 else None
+    if best_model is None:
+        raise FileNotFoundError("Nenhum modelo encontrado em 'model/'.")
 
-    # Previsão de exemplo(Temos que substituir pelos dados da nossa IA)
-    prediction = 1 if glucose > 125 or bmi > 30 else 0
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    checkpoint = torch.load("model/" + best_model, map_location=device, weights_only=False)
+    scaler = joblib.load("model/random_forest/scaler.pkl")
+    
+    # Essa parte leva em consideração os valores em 'model/train_model.py'.
+    # Para alterar aqui você deve alterar lá e vice-versa.
+    input_size = 8
+    hidden_size = 32
+    output_size = 2
+    
+    model = Net(input_size, hidden_size, output_size)
+    model.load_state_dict(checkpoint["model_state"])
+    model.to(device)
+    model.eval()
+    
+    x_new = input_data.values
+    x_new_scaled = scaler.transform(x_new)
+    x_new_tensor = torch.tensor(x_new_scaled, dtype=torch.float32)
+    
+    with torch.no_grad():
+        pred = model(x_new_tensor)
+        pred_labels = pred.argmax(dim=1)
+        prob = F.softmax(pred, dim=1)
+    
     
     st.write("### Resultado da Previsão:")
-    if prediction == 1:
-        st.error("O paciente tem risco de **diabetes**.")
-    else:
-        st.success("O paciente tem baixo risco de diabetes.")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if pred_labels.item() == 1:
+            st.error("🩺 **Risco de Diabetes Detectado**")
+            st.metric(label="Probabilidade de Diabetes", value=f"{prob[0][1].item():.1%}")
+        else:
+            st.success("✅ **Sem Indicação de Diabetes**")
+            st.metric(label="Probabilidade de Diabetes", value=f"{prob[0][1].item():.1%}")
+
+    with col2:
+        st.metric(label="Probabilidade Saudável", value=f"{prob[0][0].item():.1%}")
+        
+    st.warning(f"""
+        ⚠️ __**Atenção!**__ ⚠️
+
+        Inteligências Artificiais não são 100% precisas. Este resultado é apenas uma estimativa baseada em dados estatísticos.
+
+        **DiabPredict tem aproximadamente {best_model[13:15]}% de precisão.**
+
+        Sempre consulte um médico para diagnóstico definitivo.
+    """)

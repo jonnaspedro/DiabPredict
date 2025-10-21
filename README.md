@@ -34,13 +34,38 @@ O projeto utiliza o **Pima Indians Diabetes Dataset** do UCI Machine Learning Re
 
 
 ## 🔹 Como testar a IA 🚀
+1️⃣ Instale as dependências:
+```bash
+# Se você não quer utilizar CUDA ou não tem suporte em sua GPU, execute isso:
+pip install -r requirements-cpu.txt
+# Se você quer utilizar CUDA e tem suporte em sua GPU, execute isso:
+pip install -r requirements-gpu.txt
+```
 
-1️⃣ Execute o app Streamlit:  
+2️⃣ Para rodar tudo junto:
+```bash
+# Certifique-se de baixar o Makefile antes
+make run
+```
+
+**Ou, se quiser separadamente:**
+
+2️⃣ Traine o seu modelo:
+```bash
+make train
+# ou
+python model/train_model.py
+```
+
+3️⃣ Execute o app Streamlit:  
 
 ```bash
-streamlit run app/app.py
+make run
+# ou
+streamlit run streamlit_app.py
 ```
-2️⃣ Preencha os resultados do exame de sangue:  
+
+4️⃣ Preencha os resultados do exame de sangue:  
 
 - Glicose  
 - Pressão Arterial  
@@ -49,7 +74,7 @@ streamlit run app/app.py
 - Idade  
 - Outros parâmetros clínicos
 
-3️⃣ Clique em **"Prever"** e visualize o resultado:  
+5️⃣ Clique em **"Prever"** e visualize o resultado:  
 
 ✅ Sem risco de diabetes  
 ⚠️ Risco de diabetes
@@ -66,7 +91,7 @@ O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Intelig�
 
 ## 🔹 Autores 👨‍💻
 
-**Jonnas Pedro**, **Cauã Rocha** e **João Farias** — desenvolvimento do projeto como parte da **Atividade AV3**
+**Jonnas Pedro**, **Cauã Rocha** e **João Vitor** — desenvolvimento do projeto como parte da **Atividade AV3**
 
 
 ## 🔹 Licença 📜
