@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from pathlib import Path
+import joblib
 # from mpl_toolkits.mplot3d import Axes3D
 # import pickle
 
@@ -110,15 +111,16 @@ if st.button("Prever Diabetes"):
             x = self.fc4(x)
             return x
         
+        
     folder = Path("model")
-    files = sorted(folder.iterdir(), key=lambda f: f.name, reverse=True)
-    best_model = files[1].name if len(files) > 1 else None
+    files = sorted([f for f in folder.iterdir() if f.suffix == '.pt'], key=lambda f: f.name, reverse=True)
+    best_model = files[0].name if len(files) > 1 else None
     if best_model is None:
         raise FileNotFoundError("Nenhum modelo encontrado em 'model/'.")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     checkpoint = torch.load("model/" + best_model, map_location=device, weights_only=False)
-    scaler = checkpoint["scaler"]
+    scaler = joblib.load("model/random_forest/scaler.pkl")
     
     # Essa parte leva em consideração os valores em 'model/train_model.py'.
     # Para alterar aqui você deve alterar lá e vice-versa.
@@ -155,14 +157,12 @@ if st.button("Prever Diabetes"):
     with col2:
         st.metric(label="Probabilidade Saudável", value=f"{prob[0][0].item():.1%}")
         
-    st.warning("""
-        ⚠️ **Atenção Importante!**
+    st.warning(f"""
+        ⚠️ __**Atenção!**__ ⚠️
 
         Inteligências Artificiais não são 100% precisas. Este resultado é apenas uma estimativa baseada em dados estatísticos.
 
-        **DiabPredict tem aproximadamente 90% de precisão.**
+        **DiabPredict tem aproximadamente {best_model[13:15]}% de precisão.**
 
-        Sempre consulte um profissional de saúde para diagnóstico definitivo!
+        Sempre consulte um médico para diagnóstico definitivo.
     """)
-
-
