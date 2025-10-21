@@ -111,7 +111,7 @@ class HybridEnsembleTrainer:
         stagnation_count = 0
         previous_best = 0
         
-        while best_score < 0.85 or gen >= max_generations:
+        while best_score <= 0.85 and gen <= max_generations:
             gen += 1
             fitnesses = [evaluate_individual(m, X_train_t, y_train_t) for m in self.neural_population]
             ranked = sorted(zip(fitnesses, self.neural_population), key=lambda x: x[0], reverse=True)
