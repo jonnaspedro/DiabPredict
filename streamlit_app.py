@@ -150,9 +150,6 @@ if st.button("Prever Diabetes"):
         else:
             st.success("✅ **Sem Indicação de Diabetes**")
             st.metric(label="Probabilidade de Diabetes", value=f"{prob[0][1].item():.1%}")
-
-    with col2:
-        st.metric(label="Probabilidade Saudável", value=f"{prob[0][0].item():.1%}")
         
     st.warning(f"""
         ⚠️ __**Atenção!**__ ⚠️
