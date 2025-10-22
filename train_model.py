@@ -102,7 +102,6 @@ while best_score <= 0.85 and gen < MAX_GENS:
     )
     
     print(lines)
-    print("-"*len(lines))
     
     if stagnation_count >= MAX_GENS/2:
         print("Early stopping due to stagnation")
