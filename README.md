@@ -85,8 +85,7 @@ Predição de Diabetes Utilizando Modelos de Aprendizado de Máquina com o Datas
 
 O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Inteligência Artificial voltada para a predição instantânea do risco de diabetes a partir de dados clínicos de exames de sangue. classificador baseado em rede neural totalmente conectada, otimizado por algoritmo genético para prever a ocorrência de diabetes. A ferramenta foi desenvolvida em Python com interface interativa em Streamlit, permitindo fácil utilização por profissionais de saúde e pacientes. Os resultados indicam que o uso de algoritmos de aprendizado supervisionado pode auxiliar de forma eficaz na identificação precoce do diabetes, contribuindo para diagnósticos mais rápidos e decisões médicas assertivas.
 
-[🔗 Link do Artigo (Em Breve)](#)
-
+📄 [Leia o artigo completo do DiabPredict](https://github.com/user-attachments/files/23045067/DiabPredict_TDS_IFPE.pdf) 
 ## 🔹 Autores 👨‍💻
 
 **Jonnas Pedro**, **Cauã Rocha** e **João Vitor** — desenvolvimento do projeto como parte da **Atividade AV3**
