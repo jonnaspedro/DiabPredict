@@ -4,7 +4,7 @@ all: train run
 
 train:
 	@echo "Treinando o modelo..."
-	$(PYTHON) model/train_model.py
+	$(PYTHON) train_model.py
 
 run:
 	@echo "Iniciando o Streamlit..."
