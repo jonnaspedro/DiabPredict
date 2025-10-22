@@ -6,9 +6,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from pathlib import Path
-import joblib
-# from mpl_toolkits.mplot3d import Axes3D
-# import pickle
 
 path = "data/diabetes.csv"
 df = pd.read_csv(path)
@@ -120,7 +117,7 @@ if st.button("Prever Diabetes"):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     checkpoint = torch.load("model/" + best_model, map_location=device, weights_only=False)
-    scaler = joblib.load("model/random_forest/scaler.pkl")
+    scaler = checkpoint["scaler"]
     
     # Essa parte leva em consideração os valores em 'model/train_model.py'.
     # Para alterar aqui você deve alterar lá e vice-versa.
@@ -164,5 +161,5 @@ if st.button("Prever Diabetes"):
 
         **DiabPredict tem aproximadamente {best_model[13:15]}% de precisão.**
 
-        Sempre consulte um médico para diagnóstico definitivo.
+        Sempre consulte um médico para diagnóstico definitivo!
     """)
