@@ -1,6 +1,6 @@
 ## 💉 DiabPredict — IA para Predição Instantânea de Diabetes
 
-![Python](https://img.shields.io/badge/Python-3.14.0-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-v1.30-orange) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2-green) ![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.12.4-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-v1.50.0-orange) ![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 **DiabPredict** é uma solução inovadora que utiliza **Inteligência Artificial** para estimar o risco de diabetes **imediatamente após um exame de sangue**. A ferramenta combina **Machine Learning** com uma interface intuitiva, permitindo que profissionais de saúde e pacientes recebam um diagnóstico rápido e confiável.
 
@@ -27,10 +27,8 @@ O projeto utiliza o **Pima Indians Diabetes Dataset** do UCI Machine Learning Re
 
 ## 🔹 Tecnologias e Bibliotecas
 
-- **Python 3**  
-- **Machine Learning:** scikit-learn (Regressão Logística, Random Forest, SVM)  
-- **Interface:** Streamlit  
-- **Análise e visualização de dados:** pandas, numpy, matplotlib, seaborn  
+* **[Dependências (uso apenas da CPU)](requirements-cpu)**<br>
+* **[Dependências (suporte a GPU com CUDA)](requirements-gpu)**
 
 
 ## 🔹 Como testar a IA 🚀
@@ -85,9 +83,9 @@ streamlit run streamlit_app.py
 
 Predição de Diabetes Utilizando Modelos de Aprendizado de Máquina com o Dataset Pima Indians
 
-O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Inteligência Artificial voltada para a predição instantânea do risco de diabetes a partir de dados clínicos de exames de sangue. Utilizando o Pima Indians Diabetes Dataset, foram aplicadas técnicas de Machine Learning como Regressão Logística, Random Forest e SVM para treinar e avaliar modelos preditivos. A ferramenta foi desenvolvida em Python com interface interativa em Streamlit, permitindo fácil utilização por profissionais de saúde e pacientes. Os resultados indicam que o uso de algoritmos de aprendizado supervisionado pode auxiliar de forma eficaz na identificação precoce do diabetes, contribuindo para diagnósticos mais rápidos e decisões médicas assertivas.
+O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Inteligência Artificial voltada para a predição instantânea do risco de diabetes a partir de dados clínicos de exames de sangue. classificador baseado em rede neural totalmente conectada, otimizado por algoritmo genético para prever a ocorrência de diabetes. A ferramenta foi desenvolvida em Python com interface interativa em Streamlit, permitindo fácil utilização por profissionais de saúde e pacientes. Os resultados indicam que o uso de algoritmos de aprendizado supervisionado pode auxiliar de forma eficaz na identificação precoce do diabetes, contribuindo para diagnósticos mais rápidos e decisões médicas assertivas.
 
-🔗 Link do Artigo: [Em Breve]
+[🔗 Link do Artigo (Em Breve)](#)
 
 ## 🔹 Autores 👨‍💻
 
