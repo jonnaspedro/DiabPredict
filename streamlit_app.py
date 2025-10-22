@@ -141,7 +141,7 @@ if st.button("Prever Diabetes"):
     
     
     st.write("### Resultado da Previsão:")
-    col1, col2 = st.columns(2)
+    col1, _ = st.columns(2)
 
     with col1:
         if pred_labels.item() == 1:
