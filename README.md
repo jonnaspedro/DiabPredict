@@ -1,6 +1,6 @@
 ## 💉 DiabPredict — IA para Predição Instantânea de Diabetes
 
-![Python](https://img.shields.io/badge/Python-3.12.4-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-v1.50.0-orange) ![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.12-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-v1.50.0-orange) ![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 **DiabPredict** é uma solução inovadora que utiliza **Inteligência Artificial** para estimar o risco de diabetes **imediatamente após um exame de sangue**. A ferramenta combina **Machine Learning** com uma interface intuitiva, permitindo que profissionais de saúde e pacientes recebam um diagnóstico rápido e confiável.
 
@@ -85,7 +85,7 @@ Predição de Diabetes Utilizando Modelos de Aprendizado de Máquina com o Datas
 
 O presente trabalho apresenta o DiabPredict, uma aplicação baseada em Inteligência Artificial voltada para a predição instantânea do risco de diabetes a partir de dados clínicos de exames de sangue. Classificador baseado em rede neural totalmente conectada, otimizado por algoritmo genético para prever a ocorrência de diabetes. A ferramenta foi desenvolvida em Python com interface interativa em Streamlit, permitindo fácil utilização por profissionais de saúde e pacientes. Os resultados indicam que o uso de algoritmos de aprendizado supervisionado pode auxiliar de forma eficaz na identificação precoce do diabetes, contribuindo para diagnósticos mais rápidos e decisões médicas assertivas.
 
-📄 [Leia o artigo completo do DiabPredict](https://github.com/user-attachments/files/23045067/DiabPredict_TDS_IFPE.pdf) 
+📄 [Leia o artigo completo do DiabPredict](https://github.com/jonnaspedro/DiabPredict/blob/main/DiabPredictIA.pdf) 
 ## 🔹 Autores 👨‍💻
 
 **Jonnas Pedro**, **Cauã Rocha** e **João Vitor** — desenvolvimento do projeto como parte da **Atividade AV3**
