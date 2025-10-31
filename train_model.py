@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from os import makedirs
 
 # config/constants
 TARGET_COL = "Outcome"
@@ -118,7 +119,7 @@ while best_score <= 0.85 and gen < MAX_GENS:
         
         pop = elite + children
         
-
+makedirs("model", exist_ok=True)
 best_model = max(pop, key=lambda m: evaluate(m))
 best_fitness = f"{evaluate(best_model):.4f}".replace('.', '')
 torch.save({
