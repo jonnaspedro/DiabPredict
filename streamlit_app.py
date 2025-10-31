@@ -111,7 +111,7 @@ if st.button("Prever Diabetes"):
         
     folder = Path("model")
     files = sorted([f for f in folder.iterdir() if f.suffix == '.pt'], key=lambda f: f.name, reverse=True)
-    best_model = files[0].name if len(files) > 1 else None
+    best_model = files[0].name if len(files) > 0 else None
     if best_model is None:
         raise FileNotFoundError("Nenhum modelo encontrado em 'model/'.")
 
